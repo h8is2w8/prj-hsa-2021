@@ -1,0 +1,61 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    concurrent-ruby (1.1.9)
+    elasticsearch (7.13.3)
+      elasticsearch-api (= 7.13.3)
+      elasticsearch-transport (= 7.13.3)
+    elasticsearch-api (7.13.3)
+      multi_json
+    elasticsearch-transport (7.13.3)
+      faraday (~> 1)
+      multi_json
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
+    faraday (1.5.1)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0.1)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.1)
+      faraday-patron (~> 1.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
+    i18n (1.8.10)
+      concurrent-ruby (~> 1.0)
+    multi_json (1.15.0)
+    multipart-post (2.1.1)
+    nio4r (2.5.7)
+    pg (1.2.3)
+    puma (5.3.2)
+      nio4r (~> 2.0)
+    rack (2.2.3)
+    rake (13.0.6)
+    roda (3.46.0)
+      rack
+    ruby2_keywords (0.0.5)
+    sequel (5.46.0)
+
+PLATFORMS
+  ruby
+  x86_64-darwin-19
+
+DEPENDENCIES
+  elasticsearch
+  faker
+  pg
+  puma
+  rake
+  roda
+  sequel
+
+BUNDLED WITH
+   2.2.13

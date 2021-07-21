@@ -1,0 +1,37 @@
+influxdb:
+  image: influxdb:1.8.6
+  container_name: influxdb
+  ports:
+    - "8083:8083"
+    - "8086:8086"
+    - "8090:8090"
+    - "2003:2003"
+  env_file:
+    - 'env.influxdb'
+  volumes:
+    # Data persistency
+    # sudo mkdir -p ./docker/influxdb/data
+    - ./docker/influxdb/data:/var/lib/influxdb
+
+telegraf:
+  image: telegraf:latest
+  container_name: telegraf
+  links:
+    - influxdb
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+
+grafana:
+  image: grafana/grafana:latest
+  container_name: grafana
+  ports:
+    - "3000:3000"
+  env_file:
+    - 'env.grafana'
+  links:
+    - influxdb
+  volumes:
+    # Data persistency
+    # mkdir -p ./docker/grafana/data; chown 472:472 ./docker/grafana/data
+    - ./docker/grafana/data:/var/lib/grafana
